@@ -6,6 +6,9 @@
 [failtaskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Tasks/VS2022.TaskProblem.Fail.Tasks.csproj
 [failtasktask]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Tasks/HelloTask.cs
 [failuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Using/VS2022.TaskProblem.Fail.Using.csproj
+[worktaskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/VS2022.TaskProblem.Working.Tasks.csproj
+[worktargets]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/build/VS2022.TaskProblem.Working.Tasks.targets
+[workuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Using/VS2022.TaskProblem.Working.Using.csproj
 
 Minimal project to investigate VS2022 and .net6.0 custom task problem.
 
@@ -88,4 +91,42 @@ Get-Process "msbuild" -ErrorAction Ignore | ForEach-Object { $_.Kill($true) }
 ```
 
 ## The Workaround
+
+The project [VS2022.TaskProblem.Working.Tasks][worktaskproj] contains a possible workaround. It targets ```net6.0``` and ```net472```:
+
+```xml
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net472</TargetFrameworks>
+  </PropertyGroup>
+```
+
+The appropriate assembly to use is selected in the [build/VS2022.TaskProblem.Working.Tasks.targets][worktargets] file:
+
+```xml
+  <PropertyGroup>
+    <HelloTaskBaseDir>$([MSBuild]::NormalizeDirectory( $(MSBuildThisFileDirectory), "..", "lib" ))</HelloTaskBaseDir>
+    <HelloTaskAssemblyDir Condition="'$(MSBuildRuntimeType)'=='Core'">$([MSBuild]::NormalizeDirectory($(HelloTaskBaseDir),"net6.0"))</HelloTaskAssemblyDir>
+    <HelloTaskAssemblyDir Condition="'$(MSBuildRuntimeType)'!='Core'">$([MSBuild]::NormalizeDirectory($(HelloTaskBaseDir),"net472"))</HelloTaskAssemblyDir>
+    <HelloTaskAssemblyFile>$([MSBuild]::NormalizePath($(HelloTaskAssemblyDir),"VS2022.TaskProblem.Working.Tasks.dll"))</HelloTaskAssemblyFile>
+  </PropertyGroup>
+
+  <UsingTask TaskName="VS2022.TaskProblem.Working.Tasks.HelloTask" AssemblyFile="$(HelloTaskAssemblyFile)" />
+```
+
+The associated project [VS2022.TaskProblem.Working.Using][workuseproj] builds just fine:
+
+Output from command-line build:
+
+```
+Hello from Working (net6.0)
+```
+
+Output from within Visual Studio:
+
+```
+Hello from Working (net472)
+```
+
+This is of course not an acceptable workaround, since the greatest common denominator between ```net6.0``` and ```net472``` is
+```netstandard2.0``` and I don't want this restriction in my custom tasks!
 
