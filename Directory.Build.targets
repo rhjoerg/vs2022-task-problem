@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <Target Name="CreateNuGetDirectories" BeforeTargets="BeforeResolveReferences">
+    <MakeDir Directories="$(RepositoryDirectory)" />
+    <MakeDir Directories="$(PackageOutputPath)" />
+  </Target>
+
+  <Target Name="InstallPackage" AfterTargets="Pack">
+    <Exec Command="pwsh ./install-package.ps1 -Project $(AssemblyName) -Configuration $(Configuration)" WorkingDirectory="$(MSBuildThisFileDirectory)"/>
+  </Target>
+
+</Project>

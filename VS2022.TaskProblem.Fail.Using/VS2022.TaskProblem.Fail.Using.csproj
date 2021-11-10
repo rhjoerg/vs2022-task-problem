@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TasksAssembly>$([MSBuild]::NormalizePath( $(RepositoryDirectory), "VS2022.TaskProblem.Fail.Tasks", $(VersionPrefix), "lib", "net6.0", "VS2022.TaskProblem.Fail.Tasks.dll" ))</TasksAssembly>
+  </PropertyGroup>
+  
+  <UsingTask TaskName="VS2022.TaskProblem.Fail.Tasks.HelloTask" AssemblyFile="$(TasksAssembly)" />
+
+  <Target Name="SayHello" AfterTargets="Compile">
+    <HelloTask />
+  </Target>
+
+</Project>
