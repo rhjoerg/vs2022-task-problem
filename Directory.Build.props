@@ -5,6 +5,7 @@
     <LangVersion>10.0</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -15,6 +16,11 @@
   <PropertyGroup>
     <RepositoryDirectory>$([MSBuild]::NormalizeDirectory( $(MSBuildThisFileDirectory), 'repository' ))</RepositoryDirectory>
     <PackageOutputPath>$([MSBuild]::NormalizeDirectory( $(MSBuildThisFileDirectory), 'packages' ))</PackageOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <FailTasksTargets>$([MSBuild]::NormalizePath( $(RepositoryDirectory), 'VS2022.TaskProblem.Fail.Tasks', $(VersionPrefix), 'build', 'VS2022.TaskProblem.Fail.Tasks.targets' ))</FailTasksTargets>
+    <WorkingTasksTargets>$([MSBuild]::NormalizePath( $(RepositoryDirectory), 'VS2022.TaskProblem.Working.Tasks', $(VersionPrefix), 'build', 'VS2022.TaskProblem.Working.Tasks.targets' ))</WorkingTasksTargets>
   </PropertyGroup>
 
   <PropertyGroup>

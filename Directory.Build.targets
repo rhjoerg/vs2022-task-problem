@@ -10,4 +10,15 @@
     <Exec Command="pwsh ./install-package.ps1 -Project $(AssemblyName) -Configuration $(Configuration)" WorkingDirectory="$(MSBuildThisFileDirectory)"/>
   </Target>
 
+  <Target Name="UninstallPackage" BeforeTargets="Clean;Rebuild">
+    <Exec Command="pwsh ./uninstall-package.ps1 -Project $(AssemblyName)" WorkingDirectory="$(MSBuildThisFileDirectory)"/>
+  </Target>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>TargetFramework</_Parameter1>
+      <_Parameter2>$(TargetFramework)</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+
 </Project>

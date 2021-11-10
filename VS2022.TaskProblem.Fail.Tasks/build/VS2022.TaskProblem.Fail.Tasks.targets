@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project>
+  
+  <PropertyGroup>
+    <HelloTaskAssemblyDir>$([MSBuild]::NormalizeDirectory( $(MSBuildThisFileDirectory), "..", "lib", "net6.0" ))</HelloTaskAssemblyDir>
+    <HelloTaskAssemblyFile>$([MSBuild]::NormalizePath( $(HelloTaskAssemblyDir), "VS2022.TaskProblem.Fail.Tasks.dll" ))</HelloTaskAssemblyFile>
+  </PropertyGroup>
+  
+  <UsingTask TaskName="VS2022.TaskProblem.Fail.Tasks.HelloTask" AssemblyFile="$(HelloTaskAssemblyFile)" />
+  
+</Project>

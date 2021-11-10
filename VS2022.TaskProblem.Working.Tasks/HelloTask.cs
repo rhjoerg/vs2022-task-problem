@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace VS2022.TaskProblem.Fail.Tasks
+namespace VS2022.TaskProblem.Working.Tasks
 {
     public class HelloTask : Microsoft.Build.Utilities.Task
     {
@@ -16,7 +16,7 @@ namespace VS2022.TaskProblem.Fail.Tasks
 
         public override bool Execute()
         {
-            Log.LogMessage(MessageImportance.High, $"Hello from Fail ({TargetFramework})");
+            Log.LogMessage(MessageImportance.High, $"Hello from Working ({TargetFramework})");
 
             return true;
         }
