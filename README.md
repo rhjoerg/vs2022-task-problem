@@ -3,17 +3,19 @@
 [repository]: https://github.com/rhjoerg/vs2022-task-problem
 [uninst]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/uninstall-package.ps1
 [unlock]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/unlock-assemblies.ps1
+[dirbuildprops]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/Directory.Build.props
 [failtaskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Tasks/VS2022.TaskProblem.Fail.Tasks.csproj
 [failtasktask]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Tasks/HelloTask.cs
 [failuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Using/VS2022.TaskProblem.Fail.Using.csproj
 [worktaskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/VS2022.TaskProblem.Working.Tasks.csproj
 [worktargets]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/build/VS2022.TaskProblem.Working.Tasks.targets
 [workuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Using/VS2022.TaskProblem.Working.Using.csproj
+[exp1proj]
 
 Minimal project to investigate VS2022 and .net6.0 custom task problem.
 
 I upgraded to Visual Studio 2022. I upgraded some of my projects to ```<TargetFramework>net6.0</TargetFramework>```. Among those projects
-is a custom build task assembly. Building projects that "use" (```<UsingTask TaskName=" ...```) this assembly works fine when builing from the command line (```dotnet build ...```) but fails when building from within Visual Studio.
+is a custom build task assembly. Building projects that "use" (```<UsingTask TaskName="...```) this assembly works fine when builing from the command line (```dotnet build ...```) but fails when building from within Visual Studio.
 
 To isolate the problem and reproduce the failure, I created a (this) [GitHub repository][repository] containing a (not-so-minimal)
 Visual Studio solution with several small projects.
@@ -129,4 +131,21 @@ Hello from Working (net472)
 
 This is of course not an acceptable workaround, since the greatest common denominator between ```net6.0``` and ```net472``` is
 ```netstandard2.0``` and I don't want this restriction in my custom tasks!
+
+### Side-Note
+
+The project failed to build at first due to some "implicit usings". Who the heck added this feature without warning. I ended up
+disabling it on the solution level in the [Directory.Build.props][dirbuildprops] file:
+
+```xml
+  <PropertyGroup>
+    <LangVersion>10.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+```
+
+This of course required some additional ```using``` statements in the [Task][failtasktask] of the failing project.
+
+## Experiment 1 - Explicit ToolsVersion
 
