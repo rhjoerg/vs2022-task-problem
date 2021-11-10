@@ -10,7 +10,7 @@
 [worktaskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/VS2022.TaskProblem.Working.Tasks.csproj
 [worktargets]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/build/VS2022.TaskProblem.Working.Tasks.targets
 [workuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Using/VS2022.TaskProblem.Working.Using.csproj
-[exp1proj]
+[exp1proj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp1.Using/VS2022.TaskProblem.Exp1.Using.csproj
 
 Minimal project to investigate VS2022 and .net6.0 custom task problem.
 
@@ -149,3 +149,12 @@ This of course required some additional ```using``` statements in the [Task][fai
 
 ## Experiment 1 - Explicit ToolsVersion
 
+The [VS2022.TaskProblem.Exp1.Using][exp1proj] project is a copy of the failing project above, explicitely stating the toolset
+to use:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+...
+```
+
+To no avail: this project as well fails to build witin Visual Studio.
