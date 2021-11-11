@@ -3,3 +3,4 @@ packages/
 repository/
 **/bin/
 **/obj/
+*.nupkg

@@ -11,6 +11,7 @@
 [worktargets]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/build/VS2022.TaskProblem.Working.Tasks.targets
 [workuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Using/VS2022.TaskProblem.Working.Using.csproj
 [exp1proj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp1.Using/VS2022.TaskProblem.Exp1.Using.csproj
+[exp2proj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp2/VS2022.TaskProblem.Exp2.csproj
 
 Minimal project to investigate VS2022 and .net6.0 custom task problem.
 
@@ -162,7 +163,7 @@ To no avail: this project as well fails to build witin Visual Studio.
 
 ## Experiment 2 - MSBuildToolsPath
 
-This [project]() simply shows the value of the ```MSBuildToolsPath``` property. Building within Visual Studio gives the following result:
+This [project][exp2proj] simply shows the value of the ```MSBuildToolsPath``` property. Building within Visual Studio gives the following result:
 
 ```
   MSBuildToolsPath = 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64'
