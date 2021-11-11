@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="Messages1" AfterTargets="Compile">
+    <Message Text="MSBuildToolsPath = '$(MSBuildToolsPath)'" Importance="high" />
+  </Target>
+
+  <Target Name="Messages2" AfterTargets="Compile" DependsOnTargets="Messages1">
+    <Message Text="GetCurrentToolsDirectory = '$([MSBuild]::GetCurrentToolsDirectory())'" Importance="high" />
+    <Message Text="GetToolsDirectory32 = '$([MSBuild]::GetToolsDirectory32())'" Importance="high" />
+    <Message Text="GetToolsDirectory64 = '$([MSBuild]::GetToolsDirectory64())'" Importance="high" />
+  </Target>
+
+</Project>

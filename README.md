@@ -27,6 +27,7 @@ Visual Studio solution with several small projects.
 - Visual Studio 2022
 - dotnet 6.0.100
 - PowerShell 7.1+
+- Build/run on Windows 10
 
 ### The code
 
@@ -89,7 +90,7 @@ assembly is locked by a dangling "msbuild" process. The indirectly invoked [unlo
 The following PowerShell one-liner gets rid of this/these process(es):
 
 ```powershell
-Get-Process "msbuild" -ErrorAction Ignore | ForEach-Object { $_.Kill($true) }
+@("msbuild", "dotnet") | ForEach-Object { Get-Process $_ -ErrorAction Ignore | ForEach-Object { $_.Kill($true) } }
 ```
 
 ## The Workaround
@@ -158,3 +159,59 @@ to use:
 ```
 
 To no avail: this project as well fails to build witin Visual Studio.
+
+## Experiment 2 - MSBuildToolsPath
+
+This [project]() simply shows the value of the ```MSBuildToolsPath``` property. Building within Visual Studio gives the following result:
+
+```
+  MSBuildToolsPath = 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64'
+```
+
+This looks wrong. I have an "Intel(R) Core(TM) i7-9750H CPU @ 2.60 GHz" machine and not an AMD.
+
+Scanning ```C:\Program Files\Microsoft Visual Studio\2022``` for ```MSBuildToolsPath``` shows that the property is set
+in the ```MSBuild.exe.config``` file:
+
+```xml
+      <property name="MSBuildToolsPath" value="$([MSBuild]::GetCurrentToolsDirectory())" />
+      <property name="MSBuildToolsPath32" value="$([MSBuild]::GetToolsDirectory32())" />
+      <property name="MSBuildToolsPath64" value="$([MSBuild]::GetToolsDirectory64())" />
+```
+
+The following target...
+
+```xml
+  <Target Name="Messages2" AfterTargets="Compile" DependsOnTargets="Messages1">
+    <Message Text="GetCurrentToolsDirectory = '$([MSBuild]::GetCurrentToolsDirectory())'" Importance="high" />
+    <Message Text="GetToolsDirectory32 = '$([MSBuild]::GetToolsDirectory32())'" Importance="high" />
+    <Message Text="GetToolsDirectory64 = '$([MSBuild]::GetToolsDirectory64())'" Importance="high" />
+  </Target>
+```
+
+... gives the following confusing(!) output
+
+```
+  GetCurrentToolsDirectory = 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64'
+  GetToolsDirectory32 = 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin'
+  GetToolsDirectory64 = 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64'
+```
+
+Further investigation of the config file shows that mostly outdated versions of tools are used (excerpt):
+
+```xml
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Build.Framework" culture="neutral" publicKeyToken="b03f5f7f11d50a3a" />
+        <bindingRedirect oldVersion="0.0.0.0-99.9.9.9" newVersion="15.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Build" culture="neutral" publicKeyToken="b03f5f7f11d50a3a" />
+        <bindingRedirect oldVersion="0.0.0.0-99.9.9.9" newVersion="15.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Build.Conversion.Core" culture="neutral" publicKeyToken="b03f5f7f11d50a3a" />
+        <bindingRedirect oldVersion="0.0.0.0-99.9.9.9" newVersion="15.1.0.0" />
+      </dependentAssembly>
+```
+
+The actual DLLs in the ```Bin``` directory have version 17.0.0.52104 &ndash; more confusion.
