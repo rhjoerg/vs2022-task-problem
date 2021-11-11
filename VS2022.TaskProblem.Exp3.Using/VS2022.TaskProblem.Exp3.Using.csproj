@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <Import Project="$(Exp3TasksTargets)" Condition="Exists('$(Exp3TasksTargets)')"/>
+
+  <Target Name="SayHello" AfterTargets="Compile" Condition="Exists('$(Exp3TasksTargets)')">
+    <HelloTask />
+  </Target>
+
+</Project>

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net472</TargetFrameworks>
@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Compile Include="$(SharedTaskBase)" />
-    <None Include="build/VS2022.TaskProblem.Working.Tasks.targets" Pack="true" PackagePath="build/"/>
+    <None Include="build/VS2022.TaskProblem.Exp3.Tasks.targets" Pack="true" PackagePath="build/"/>
   </ItemGroup>
 
 </Project>

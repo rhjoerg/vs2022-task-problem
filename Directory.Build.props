@@ -18,8 +18,14 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Shared>$([MSBuild]::NormalizeDirectory( $(MSBuildThisFileDirectory), 'VS2022.TaskProblem.Shared' ))</Shared>
+    <SharedTaskBase>$([MSBuild]::NormalizePath( $(Shared), 'TaskBase.cs' ))</SharedTaskBase>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <FailTasksTargets>$([MSBuild]::NormalizePath( $(RepositoryDirectory), 'VS2022.TaskProblem.Fail.Tasks', $(VersionPrefix), 'build', 'VS2022.TaskProblem.Fail.Tasks.targets' ))</FailTasksTargets>
     <WorkingTasksTargets>$([MSBuild]::NormalizePath( $(RepositoryDirectory), 'VS2022.TaskProblem.Working.Tasks', $(VersionPrefix), 'build', 'VS2022.TaskProblem.Working.Tasks.targets' ))</WorkingTasksTargets>
+    <Exp3TasksTargets>$([MSBuild]::NormalizePath( $(RepositoryDirectory), 'VS2022.TaskProblem.Exp3.Tasks', $(VersionPrefix), 'build', 'VS2022.TaskProblem.Exp3.Tasks.targets' ))</Exp3TasksTargets>
   </PropertyGroup>
 
   <PropertyGroup>

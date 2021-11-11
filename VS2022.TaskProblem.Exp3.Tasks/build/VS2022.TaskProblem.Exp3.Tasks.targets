@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project>
+
+  <PropertyGroup>
+    <HelloTaskBaseDir>$([MSBuild]::NormalizeDirectory( $(MSBuildThisFileDirectory), "..", "lib" ))</HelloTaskBaseDir>
+    <HelloTaskAssemblyDir Condition="'$(MSBuildRuntimeType)' == 'Core'">$([MSBuild]::NormalizeDirectory( $(HelloTaskBaseDir), "net6.0" ))</HelloTaskAssemblyDir>
+    <HelloTaskAssemblyDir Condition="'$(MSBuildRuntimeType)' != 'Core'">$([MSBuild]::NormalizeDirectory( $(HelloTaskBaseDir), "net472" ))</HelloTaskAssemblyDir>
+    <HelloTaskAssemblyFile>$([MSBuild]::NormalizePath( $(HelloTaskAssemblyDir), "VS2022.TaskProblem.Exp3.Tasks.dll" ))</HelloTaskAssemblyFile>
+  </PropertyGroup>
+
+  <UsingTask TaskName="VS2022.TaskProblem.Exp3.Tasks.HelloTask" AssemblyFile="$(HelloTaskAssemblyFile)" />
+
+</Project>

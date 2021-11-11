@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="$(SharedTaskBase)" />
     <None Include="build/VS2022.TaskProblem.Fail.Tasks.targets" Pack="true" PackagePath="build/"/>
   </ItemGroup>
 
