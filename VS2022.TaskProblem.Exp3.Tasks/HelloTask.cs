@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using VS2022.TaskProblem.Shared;
+﻿using VS2022.TaskProblem.Shared;
 
 namespace VS2022.TaskProblem.Exp3.Tasks
 {

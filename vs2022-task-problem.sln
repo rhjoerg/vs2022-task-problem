@@ -22,27 +22,34 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Fail.Usi
 		{0104F14A-590F-4036-994F-4CADFF2B152F} = {0104F14A-590F-4036-994F-4CADFF2B152F}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022.TaskProblem.Working.Tasks", "VS2022.TaskProblem.Working.Tasks\VS2022.TaskProblem.Working.Tasks.csproj", "{DD13812E-04F4-480D-930A-A31E691BE9ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Working.Tasks", "VS2022.TaskProblem.Working.Tasks\VS2022.TaskProblem.Working.Tasks.csproj", "{DD13812E-04F4-480D-930A-A31E691BE9ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022.TaskProblem.Working.Using", "VS2022.TaskProblem.Working.Using\VS2022.TaskProblem.Working.Using.csproj", "{76D11E02-A020-4985-ADFA-75FC0C8EA160}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Working.Using", "VS2022.TaskProblem.Working.Using\VS2022.TaskProblem.Working.Using.csproj", "{76D11E02-A020-4985-ADFA-75FC0C8EA160}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DD13812E-04F4-480D-930A-A31E691BE9ED} = {DD13812E-04F4-480D-930A-A31E691BE9ED}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022.TaskProblem.Exp1.Using", "VS2022.TaskProblem.Exp1.Using\VS2022.TaskProblem.Exp1.Using.csproj", "{1A0F0780-7DA4-489C-8006-BE3DA6D03C9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Exp1.Using", "VS2022.TaskProblem.Exp1.Using\VS2022.TaskProblem.Exp1.Using.csproj", "{1A0F0780-7DA4-489C-8006-BE3DA6D03C9F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0104F14A-590F-4036-994F-4CADFF2B152F} = {0104F14A-590F-4036-994F-4CADFF2B152F}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022.TaskProblem.Exp2", "VS2022.TaskProblem.Exp2\VS2022.TaskProblem.Exp2.csproj", "{30627F27-32D0-418C-BA28-499DECA36DC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Exp2", "VS2022.TaskProblem.Exp2\VS2022.TaskProblem.Exp2.csproj", "{30627F27-32D0-418C-BA28-499DECA36DC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022.TaskProblem.Shared", "VS2022.TaskProblem.Shared\VS2022.TaskProblem.Shared.csproj", "{78ABF5DF-667B-43CF-9E02-9F42DE9A0332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Shared", "VS2022.TaskProblem.Shared\VS2022.TaskProblem.Shared.csproj", "{78ABF5DF-667B-43CF-9E02-9F42DE9A0332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022.TaskProblem.Exp3.Tasks", "VS2022.TaskProblem.Exp3.Tasks\VS2022.TaskProblem.Exp3.Tasks.csproj", "{C57F1145-B38F-4BAC-8ED8-8458DFBFDCFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Exp3.Tasks", "VS2022.TaskProblem.Exp3.Tasks\VS2022.TaskProblem.Exp3.Tasks.csproj", "{C57F1145-B38F-4BAC-8ED8-8458DFBFDCFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022.TaskProblem.Exp3.Using", "VS2022.TaskProblem.Exp3.Using\VS2022.TaskProblem.Exp3.Using.csproj", "{860052E3-A753-434B-8BA4-5FECC65E8896}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Exp3.Using", "VS2022.TaskProblem.Exp3.Using\VS2022.TaskProblem.Exp3.Using.csproj", "{860052E3-A753-434B-8BA4-5FECC65E8896}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C57F1145-B38F-4BAC-8ED8-8458DFBFDCFF} = {C57F1145-B38F-4BAC-8ED8-8458DFBFDCFF}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Exp5.Tasks", "VS2022.TaskProblem.Exp5.Tasks\VS2022.TaskProblem.Exp5.Tasks.csproj", "{26B15DB8-5A0B-45CB-9538-9CB4BD8B4B8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022.TaskProblem.Exp5.Using", "VS2022.TaskProblem.Exp5.Using\VS2022.TaskProblem.Exp5.Using.csproj", "{70A35FCE-7373-4E0F-AC87-460D48AB9111}"
+	ProjectSection(ProjectDependencies) = postProject
+		{26B15DB8-5A0B-45CB-9538-9CB4BD8B4B8A} = {26B15DB8-5A0B-45CB-9538-9CB4BD8B4B8A}
 	EndProjectSection
 EndProject
 Global
@@ -87,6 +94,14 @@ Global
 		{860052E3-A753-434B-8BA4-5FECC65E8896}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{860052E3-A753-434B-8BA4-5FECC65E8896}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{860052E3-A753-434B-8BA4-5FECC65E8896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B15DB8-5A0B-45CB-9538-9CB4BD8B4B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B15DB8-5A0B-45CB-9538-9CB4BD8B4B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B15DB8-5A0B-45CB-9538-9CB4BD8B4B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B15DB8-5A0B-45CB-9538-9CB4BD8B4B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70A35FCE-7373-4E0F-AC87-460D48AB9111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70A35FCE-7373-4E0F-AC87-460D48AB9111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70A35FCE-7373-4E0F-AC87-460D48AB9111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70A35FCE-7373-4E0F-AC87-460D48AB9111}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

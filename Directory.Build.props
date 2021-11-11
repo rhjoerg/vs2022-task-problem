@@ -27,6 +27,7 @@
     <FailTasksTargets>$([MSBuild]::NormalizePath( $(RepositoryDirectory), 'VS2022.TaskProblem.Fail.Tasks', $(VersionPrefix), 'build', 'VS2022.TaskProblem.Fail.Tasks.targets' ))</FailTasksTargets>
     <WorkingTasksTargets>$([MSBuild]::NormalizePath( $(RepositoryDirectory), 'VS2022.TaskProblem.Working.Tasks', $(VersionPrefix), 'build', 'VS2022.TaskProblem.Working.Tasks.targets' ))</WorkingTasksTargets>
     <Exp3TasksTargets>$([MSBuild]::NormalizePath( $(RepositoryDirectory), 'VS2022.TaskProblem.Exp3.Tasks', $(VersionPrefix), 'build', 'VS2022.TaskProblem.Exp3.Tasks.targets' ))</Exp3TasksTargets>
+    <Exp5TasksTargets>$([MSBuild]::NormalizePath( $(RepositoryDirectory), 'VS2022.TaskProblem.Exp5.Tasks', $(VersionPrefix), 'build', 'VS2022.TaskProblem.Exp5.Tasks.targets' ))</Exp5TasksTargets>
   </PropertyGroup>
 
   <PropertyGroup>

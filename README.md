@@ -4,16 +4,6 @@
 [uninst]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/uninstall-package.ps1
 [unlock]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/unlock-assemblies.ps1
 [dirbuildprops]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/Directory.Build.props
-[failtaskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Tasks/VS2022.TaskProblem.Fail.Tasks.csproj
-[failtasktask]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Tasks/HelloTask.cs
-[failuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Using/VS2022.TaskProblem.Fail.Using.csproj
-[worktaskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/VS2022.TaskProblem.Working.Tasks.csproj
-[worktargets]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/build/VS2022.TaskProblem.Working.Tasks.targets
-[workuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Using/VS2022.TaskProblem.Working.Using.csproj
-[exp1proj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp1.Using/VS2022.TaskProblem.Exp1.Using.csproj
-[exp2proj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp2/VS2022.TaskProblem.Exp2.csproj
-[exp3taskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp3.Tasks/VS2022.TaskProblem.Exp3.Tasks.csproj
-[exp3useproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp3.Using/VS2022.TaskProblem.Exp3.Using.csproj
 
 - [Reproducing the Failure](#reproducing-the-failure)
 - [The Workaround](#the-workaround)
@@ -21,8 +11,7 @@
 - [Experiment 2 - MSBuildToolsPath](#experiment-2---msbuildtoolspath)
 - [Experiment 3 - More Information Required](#experiment-3---more-information-required)
 - [Experiment 4 - Remove MSBuild](#experiment-4---remove-msbuild)
-
-Minimal project to investigate VS2022 and .net6.0 custom task problem.
+- [Experiment 5 - net48](#experiment-5---net48)
 
 I upgraded to Visual Studio 2022. I upgraded some of my projects to ```<TargetFramework>net6.0</TargetFramework>```. Among those projects
 is a custom build task assembly. Building projects that "use" (```<UsingTask TaskName="...```) this assembly works fine when builing from the command line (```dotnet build ...```) but fails when building from within Visual Studio.
@@ -31,6 +20,10 @@ To isolate the problem and reproduce the failure, I created a (this) [GitHub rep
 Visual Studio solution with several small projects.
 
 ## Reproducing the Failure
+
+[failtaskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Tasks/VS2022.TaskProblem.Fail.Tasks.csproj
+[failtasktask]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Tasks/HelloTask.cs
+[failuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Fail.Using/VS2022.TaskProblem.Fail.Using.csproj
 
 ### Prerequisites
 
@@ -105,6 +98,10 @@ The following PowerShell one-liner gets rid of this/these process(es):
 
 ## The Workaround
 
+[worktaskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/VS2022.TaskProblem.Working.Tasks.csproj
+[worktargets]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Tasks/build/VS2022.TaskProblem.Working.Tasks.targets
+[workuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Using/VS2022.TaskProblem.Working.Using.csproj
+
 The project [VS2022.TaskProblem.Working.Tasks][worktaskproj] contains a possible workaround. It targets ```net6.0``` and ```net472```:
 
 ```xml
@@ -160,6 +157,8 @@ This of course required some additional ```using``` statements in the [Task][fai
 
 ## Experiment 1 - Explicit ToolsVersion
 
+[exp1proj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp1.Using/VS2022.TaskProblem.Exp1.Using.csproj
+
 The [VS2022.TaskProblem.Exp1.Using][exp1proj] project is a copy of the failing project above, explicitely stating the toolset
 to use:
 
@@ -171,6 +170,8 @@ to use:
 To no avail: this project as well fails to build witin Visual Studio.
 
 ## Experiment 2 - MSBuildToolsPath
+
+[exp2proj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp2/VS2022.TaskProblem.Exp2.csproj
 
 This [project][exp2proj] simply shows the value of the ```MSBuildToolsPath``` property. Building within Visual Studio gives the following result:
 
@@ -228,15 +229,27 @@ The actual DLLs in the ```Bin``` directory have version 17.0.0.52104 &ndash; mor
 
 ## Experiment 3 - More Information Required
 
+[exp3taskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp3.Tasks/VS2022.TaskProblem.Exp3.Tasks.csproj
+[exp3useproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp3.Using/VS2022.TaskProblem.Exp3.Using.csproj
+
 This experiment (projects [VS2022.TaskProblem.Exp3.Tasks][exp3taskproj] and [VS2022.TaskProblem.Exp3.Using][exp3useproj]) has a more
 interesting custom task that create markdown files containing information about the running MSBuild instance and the loaded assemblies.
 
 The complete outputs are [net6.0 output](output/exp3-net6.0.md) and [net472 output](output/exp3-net472.md).
 
-One of the significant differences: net6.0 uses "netstandard 2.1" and all the net6.0 ggodies whereas net472 uses "netstandard 2.0"
+One of the significant differences: net6.0 uses "netstandard 2.1" and all the net6.0 goodies whereas net472 uses "netstandard 2.0"
 and net4.0.
 
 ## Experiment 4 - Remove MSBuild
 
 Since dotnet has its own MSBuild, I launched the Visual Studio Installer to remove its MSBuild component. But
 there are dependants to be removed as well &ndash; mainly the whole .Net development. Therefore: FAILURE.
+
+## Experiment 5 - net48
+
+[exp5taskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp5.Tasks/VS2022.TaskProblem.Exp5.Tasks.csproj
+
+Whilst reading various articles on stackoverflow and other sites I stumbled over the fact, that "net48" is supported.
+
+This [experiment][exp5taskproj] is therefore a copy of the experiment 3 but targeting "net6.0" and "net48". The [output](output/exp5-net48.md)
+still shows "netstandard 2.0".

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net48</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Framework" Version="$(MicrosoftBuildFrameworkVersion)" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="$(MicrosoftBuildUtilitiesCoreVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(SharedTaskBase)" />
+    <Compile Include="$(SharedInfoTask)" />
+    <None Include="build/VS2022.TaskProblem.Exp5.Tasks.targets" Pack="true" PackagePath="build/"/>
+  </ItemGroup>
+
+</Project>

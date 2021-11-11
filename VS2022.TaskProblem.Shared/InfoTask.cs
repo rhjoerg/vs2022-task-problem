@@ -88,7 +88,7 @@ namespace VS2022.TaskProblem.Shared
 
         protected override bool InternalExecute()
         {
-            Message($"Hello from ${Hello} ({TargetFramework})");
+            Message($"Hello from {Hello} ({TargetFramework})");
             Message(Environment.CurrentDirectory);
 
             List<string> lines = new();
