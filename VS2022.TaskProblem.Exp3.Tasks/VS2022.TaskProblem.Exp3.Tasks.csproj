@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Compile Include="$(SharedTaskBase)" />
+    <Compile Include="$(SharedInfoTask)" />
     <None Include="build/VS2022.TaskProblem.Exp3.Tasks.targets" Pack="true" PackagePath="build/"/>
   </ItemGroup>
 

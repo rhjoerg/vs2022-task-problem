@@ -1,13 +1,13 @@
-# Experiment 3 - Output
+# Experiment 3 - Output (net472)
 
 ## Host
 
-Assembly | A.V. | F.V. | Location
+Assembly | Assembly Version | File Version | Location
 --- | --- | --- | ---
 MSBuild | 15.1.0.0 | 17.0.0.52104 | C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe
 ## Assemblies
 
-Assembly | A.V. | F.V. | Location
+Assembly | Assembly Version | File Version | Location
 --- | --- | --- | ---
 Microsoft.Build | 15.1.0.0 | 17.0.0.52104 | C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Microsoft.Build.dll
 Microsoft.Build.Framework | 15.1.0.0 | 17.0.0.52104 | C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Microsoft.Build.Framework.dll
@@ -42,4 +42,4 @@ System.Threading.Tasks.Dataflow | 4.6.3.0 | 4.6.26515.06 | C:\Program Files\Micr
 System.Xml | 4.0.0.0 | 4.8.4084.0 built by: NET48REL1 | C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll
 System.Xml.Linq | 4.0.0.0 | 4.8.4084.0 built by: NET48REL1 | C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll
 VS2022.TaskProblem.Exp3.Tasks | 0.0.1.0 | 0.0.1.0 | C:\source\vs2022-task-problem\repository\VS2022.TaskProblem.Exp3.Tasks\0.0.1\lib\net472\VS2022.TaskProblem.Exp3.Tasks.dll
-VS2022.TaskProblem.Working.Tasks | 0.0.1.0 | 0.0.1.0 | C:\source\vs2022-task-problem\repository\VS2022.TaskProblem.Working.Tasks\0.0.1\lib\net472\VS2022.TaskProblem.Working.Tasks.dll
+VS2022.TaskProblem.Fail.Tasks | 0.0.1.0 | 0.0.1.0 | C:\source\vs2022-task-problem\repository\VS2022.TaskProblem.Fail.Tasks\0.0.1\lib\net6.0\VS2022.TaskProblem.Fail.Tasks.dll

@@ -15,16 +15,12 @@
 [exp3taskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp3.Tasks/VS2022.TaskProblem.Exp3.Tasks.csproj
 [exp3useproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp3.Using/VS2022.TaskProblem.Exp3.Using.csproj
 
-- [vs2022-task-problem](#vs2022-task-problem)
-  - [Reproducing the Failure](#reproducing-the-failure)
-    - [Prerequisites](#prerequisites)
-    - [The code](#the-code)
-    - [Side-Note](#side-note)
-  - [The Workaround](#the-workaround)
-    - [Side-Note](#side-note-1)
-  - [Experiment 1 - Explicit ToolsVersion](#experiment-1---explicit-toolsversion)
-  - [Experiment 2 - MSBuildToolsPath](#experiment-2---msbuildtoolspath)
-  - [Experiment 3 - More Information Required](#experiment-3---more-information-required)
+- [Reproducing the Failure](#reproducing-the-failure)
+- [The Workaround](#the-workaround)
+- [Experiment 1 - Explicit ToolsVersion](#experiment-1---explicit-toolsversion)
+- [Experiment 2 - MSBuildToolsPath](#experiment-2---msbuildtoolspath)
+- [Experiment 3 - More Information Required](#experiment-3---more-information-required)
+- [Experiment 4 - Remove MSBuild](#experiment-4---remove-msbuild)
 
 Minimal project to investigate VS2022 and .net6.0 custom task problem.
 
@@ -239,3 +235,8 @@ The complete outputs are [net6.0 output](output/exp3-net6.0.md) and [net472 outp
 
 One of the significant differences: net6.0 uses "netstandard 2.1" and all the net6.0 ggodies whereas net472 uses "netstandard 2.0"
 and net4.0.
+
+## Experiment 4 - Remove MSBuild
+
+Since dotnet has its own MSBuild, I launched the Visual Studio Installer to remove its MSBuild component. But
+there are dependants to be removed as well &ndash; mainly the whole .Net development. Therefore: FAILURE.

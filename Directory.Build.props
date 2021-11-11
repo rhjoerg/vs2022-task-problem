@@ -20,6 +20,7 @@
   <PropertyGroup>
     <Shared>$([MSBuild]::NormalizeDirectory( $(MSBuildThisFileDirectory), 'VS2022.TaskProblem.Shared' ))</Shared>
     <SharedTaskBase>$([MSBuild]::NormalizePath( $(Shared), 'TaskBase.cs' ))</SharedTaskBase>
+    <SharedInfoTask>$([MSBuild]::NormalizePath( $(Shared), 'InfoTask.cs' ))</SharedInfoTask>
   </PropertyGroup>
 
   <PropertyGroup>

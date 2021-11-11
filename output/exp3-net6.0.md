@@ -1,13 +1,13 @@
-# Experiment 3 - Output
+# Experiment 3 - Output (net6.0)
 
 ## Host
 
-Assembly | A.V. | F.V. | Location
+Assembly | Assembly Version | File Version | Location
 --- | --- | --- | ---
 dotnet | 6.0.100.0 | 6.1.21.52708 | C:\Program Files\dotnet\sdk\6.0.100\dotnet.dll
 ## Assemblies
 
-Assembly | A.V. | F.V. | Location
+Assembly | Assembly Version | File Version | Location
 --- | --- | --- | ---
 dotnet | 6.0.100.0 | 6.1.21.52708 | C:\Program Files\dotnet\sdk\6.0.100\dotnet.dll
 dotnet | 6.0.100.0 | 6.1.21.52708 | C:\Program Files\dotnet\sdk\6.0.100\dotnet.dll
