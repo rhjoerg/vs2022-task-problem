@@ -12,6 +12,19 @@
 [workuseproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Working.Using/VS2022.TaskProblem.Working.Using.csproj
 [exp1proj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp1.Using/VS2022.TaskProblem.Exp1.Using.csproj
 [exp2proj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp2/VS2022.TaskProblem.Exp2.csproj
+[exp3taskproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp3.Tasks/VS2022.TaskProblem.Exp3.Tasks.csproj
+[exp3useproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp3.Using/VS2022.TaskProblem.Exp3.Using.csproj
+
+- [vs2022-task-problem](#vs2022-task-problem)
+  - [Reproducing the Failure](#reproducing-the-failure)
+    - [Prerequisites](#prerequisites)
+    - [The code](#the-code)
+    - [Side-Note](#side-note)
+  - [The Workaround](#the-workaround)
+    - [Side-Note](#side-note-1)
+  - [Experiment 1 - Explicit ToolsVersion](#experiment-1---explicit-toolsversion)
+  - [Experiment 2 - MSBuildToolsPath](#experiment-2---msbuildtoolspath)
+  - [Experiment 3 - More Information Required](#experiment-3---more-information-required)
 
 Minimal project to investigate VS2022 and .net6.0 custom task problem.
 
@@ -216,3 +229,13 @@ Further investigation of the config file shows that mostly outdated versions of 
 ```
 
 The actual DLLs in the ```Bin``` directory have version 17.0.0.52104 &ndash; more confusion.
+
+## Experiment 3 - More Information Required
+
+This experiment (projects [VS2022.TaskProblem.Exp3.Tasks][exp3taskproj] and [VS2022.TaskProblem.Exp3.Using][exp3useproj]) has a more
+interesting custom task that create markdown files containing information about the running MSBuild instance and the loaded assemblies.
+
+The complete outputs are [net6.0 output](output/exp3-net6.0.md) and [net472 output](output/exp3-net472.md).
+
+One of the significant differences: net6.0 uses "netstandard 2.1" and all the net6.0 ggodies whereas net472 uses "netstandard 2.0"
+and net4.0.
