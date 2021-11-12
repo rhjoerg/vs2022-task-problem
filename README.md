@@ -260,3 +260,17 @@ still shows "netstandard 2.0" and "System 4.0".
 
 ## Experiment 6 - Modify MSBuild.exe.config
 
+[exp6modproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp6.Modify/VS2022.TaskProblem.Exp6.Modify.csproj
+[exp6useproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp6.Using/VS2022.TaskProblem.Exp6.Using.csproj
+
+This experiment (WIP) contains two projects:
+- [VS2022.TaskProblem.Exp6.Modify][exp6modproj] &ndash; Creates a modified version of ```MSBuild.exe.config```.
+- [VS2022.TaskProblem.Exp6.Using][exp6useproj] &ndash; Uses the originally failing task with the modified configuration
+
+  VS2022.TaskProblem.Exp6.Using does not exist yet
+
+### Step 1 - Locating the Visual Studio 2022 Installation
+
+Using the ```Microsoft.VisualStudio.Setup.Configuration.Interop``` package I am able to locate the Visual Studio 2022 installation and
+verify that the MSBuild component is installed. Sadly there is not much more information to get from this package.
+
