@@ -12,6 +12,7 @@
 - [Experiment 3 - More Information Required](#experiment-3---more-information-required)
 - [Experiment 4 - Remove MSBuild](#experiment-4---remove-msbuild)
 - [Experiment 5 - net48](#experiment-5---net48)
+- [Experiment 6 - Modify MSBuild.exe.config](#experiment-6---modify-msbuildexeconfig)
 
 I upgraded to Visual Studio 2022. I upgraded some of my projects to ```<TargetFramework>net6.0</TargetFramework>```. Among those projects
 is a custom build task assembly. Building projects that "use" (```<UsingTask TaskName="...```) this assembly works fine when builing from the command line (```dotnet build ...```) but fails when building from within Visual Studio.
@@ -27,7 +28,10 @@ Visual Studio solution with several small projects.
 
 ### Prerequisites
 
-- Visual Studio 2022
+- Visual Studio 2022 with:
+  - "MSBuild" component
+  - ".Net 6.0 Runtime" component
+  - "Visual Studio extension development" workflow
 - dotnet 6.0.100
 - PowerShell 7.1+
 - Build/run on Windows 10
@@ -252,4 +256,7 @@ there are dependants to be removed as well &ndash; mainly the whole .Net develop
 Whilst reading various articles on stackoverflow and other sites I stumbled over the fact, that "net48" is supported.
 
 This [experiment][exp5taskproj] is therefore a copy of the experiment 3 but targeting "net6.0" and "net48". The [output](output/exp5-net48.md)
-still shows "netstandard 2.0".
+still shows "netstandard 2.0" and "System 4.0".
+
+## Experiment 6 - Modify MSBuild.exe.config
+
