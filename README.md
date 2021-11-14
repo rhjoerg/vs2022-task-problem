@@ -277,5 +277,9 @@ verify that the MSBuild component is installed. Sadly there is not much more inf
 ### Step 2 - Locating MSBuild.exe
 
 [netmsbrel]: https://github.com/dotnet/msbuild/releases/tag/v17.0.0
+[appcfgdoc]: https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/
 
 I downloaded the source of [¨dotnet/msbuild][netmsbrel].
+
+After inspection of the ```MSBuild.exe.config``` and reading of the [documentation][appcfgdoc] about these files, I realized that I probably need my very
+own build of MSBuild.
