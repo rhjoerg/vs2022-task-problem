@@ -274,3 +274,8 @@ This experiment (WIP) contains two projects:
 Using the ```Microsoft.VisualStudio.Setup.Configuration.Interop``` package I am able to locate the Visual Studio 2022 installation and
 verify that the MSBuild component is installed. Sadly there is not much more information to get from this package.
 
+### Step 2 - Locating MSBuild.exe
+
+[netmsbrel]: https://github.com/dotnet/msbuild/releases/tag/v17.0.0
+
+I downloaded the source of [¨dotnet/msbuild][netmsbrel].
