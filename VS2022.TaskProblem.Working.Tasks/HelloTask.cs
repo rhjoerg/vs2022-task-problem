@@ -1,7 +1,4 @@
-﻿using Microsoft.Build.Framework;
-using System.Linq;
-using System.Reflection;
-using VS2022.TaskProblem.Shared;
+﻿using VS2022.TaskProblem.Shared.Tasks;
 
 namespace VS2022.TaskProblem.Working.Tasks
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
-namespace VS2022.TaskProblem.Shared
+namespace VS2022.TaskProblem.Shared.Common
 {
     public static class Errors
     {
@@ -13,10 +13,8 @@ namespace VS2022.TaskProblem.Shared
 
         public static int Exit(string prefix)
         {
-            string directory = Path.Combine(Utilities.SolutionDirectory, "output");
-            string file = Path.Combine(directory, $"{prefix}-errors.txt");
+            string file = Path.Combine(Paths.OutputDirectory, $"{prefix}-errors.txt");
 
-            Directory.CreateDirectory(directory);
             File.WriteAllLines(file, errors);
 
             foreach (string error in errors)

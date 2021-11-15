@@ -2,9 +2,9 @@
 using System.IO;
 using System.Linq;
 
-namespace VS2022.TaskProblem.Shared
+namespace VS2022.TaskProblem.Shared.Common
 {
-    public static class Utilities
+    public static class Paths
     {
         public static string SolutionDirectory
         {
@@ -22,6 +22,16 @@ namespace VS2022.TaskProblem.Shared
 
                 throw new FileNotFoundException("Solution not found");
             }
+        }
+
+        public static string OutputDirectory { get => CreateDirectory(Path.Combine(SolutionDirectory, "output")); }
+
+        public static string DownloadsDirectory { get => CreateDirectory(Path.Combine(SolutionDirectory, "downloads")); }
+
+        private static string CreateDirectory(string directory)
+        {
+            Directory.CreateDirectory(directory);
+            return directory;
         }
     }
 }

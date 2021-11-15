@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace VS2022.TaskProblem.Shared
+namespace VS2022.TaskProblem.Shared.Tasks
 {
     public abstract class InfoTask : TaskBase
     {

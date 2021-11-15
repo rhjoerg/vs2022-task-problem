@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Net.Http;
-using VS2022.TaskProblem.Shared;
+using VS2022.TaskProblem.Shared.Common;
 
 namespace VS2022.TaskProblem.Exp7.Build
 {
@@ -19,11 +19,8 @@ namespace VS2022.TaskProblem.Exp7.Build
 
         private static bool Download(out string zipPath)
         {
-            string directory = Path.Combine(Utilities.SolutionDirectory, "downloads");
+            zipPath = Path.Combine(Paths.DownloadsDirectory, "msbuild-17.0.0.zip");
 
-            zipPath = Path.Combine(directory, "msbuild-17.0.0.zip");
-
-            Directory.CreateDirectory(directory);
             if (File.Exists(zipPath)) return true;
 
             HttpClient httpClient = new();

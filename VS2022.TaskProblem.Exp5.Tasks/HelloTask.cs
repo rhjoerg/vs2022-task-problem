@@ -1,4 +1,4 @@
-﻿using VS2022.TaskProblem.Shared;
+﻿using VS2022.TaskProblem.Shared.Tasks;
 
 namespace VS2022.TaskProblem.Exp5.Tasks
 {

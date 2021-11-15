@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project>
+
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)/VisualStudio/*.cs">
+      <Link>VisualStudio/%(Filename).cs</Link>
+    </Compile>
+  </ItemGroup>
+
+</Project>
