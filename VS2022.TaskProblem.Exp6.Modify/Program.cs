@@ -1,11 +1,5 @@
-﻿using Microsoft.Build.Utilities;
-using Microsoft.VisualStudio.Setup.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using System.IO;
+using VS2022.TaskProblem.Shared;
 
 namespace VS2022.TaskProblem.Exp6.Modify
 {
@@ -14,7 +8,7 @@ namespace VS2022.TaskProblem.Exp6.Modify
         public static int Main(string[] _)
         {
             if (!VS2022.TryGetLocation(out DirectoryInfo? installDir))
-                return Errors.Exit();
+                return Errors.Exit("exp6");
 
             return 0;
         }

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace VS2022.TaskProblem.Exp6.Modify
+namespace VS2022.TaskProblem.Shared
 {
     public static class Utilities
     {

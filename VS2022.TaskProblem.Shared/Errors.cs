@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
-namespace VS2022.TaskProblem.Exp6.Modify
+namespace VS2022.TaskProblem.Shared
 {
     public static class Errors
     {
@@ -11,10 +11,10 @@ namespace VS2022.TaskProblem.Exp6.Modify
 
         public static void Add(string error) { errors.Add(error); }
 
-        public static int Exit()
+        public static int Exit(string prefix)
         {
             string directory = Path.Combine(Utilities.SolutionDirectory, "output");
-            string file = Path.Combine(directory, "Exp6.Errors.txt");
+            string file = Path.Combine(directory, $"{prefix}-errors.txt");
 
             Directory.CreateDirectory(directory);
             File.WriteAllLines(file, errors);

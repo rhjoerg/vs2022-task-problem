@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.Setup.Configuration;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using VS2022.TaskProblem.Shared;
 
 namespace VS2022.TaskProblem.Exp6.Modify
 {

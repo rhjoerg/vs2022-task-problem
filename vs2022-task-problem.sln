@@ -52,7 +52,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Exp5.Usi
 		{26B15DB8-5A0B-45CB-9538-9CB4BD8B4B8A} = {26B15DB8-5A0B-45CB-9538-9CB4BD8B4B8A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2022.TaskProblem.Exp6.Modify", "VS2022.TaskProblem.Exp6.Modify\VS2022.TaskProblem.Exp6.Modify.csproj", "{3AE4D792-7FB4-4C64-A4DB-13D2E6498C26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VS2022.TaskProblem.Exp6.Modify", "VS2022.TaskProblem.Exp6.Modify\VS2022.TaskProblem.Exp6.Modify.csproj", "{3AE4D792-7FB4-4C64-A4DB-13D2E6498C26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
