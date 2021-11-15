@@ -5,15 +5,12 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
+  <Import Project="../VS2022.TaskProblem.Shared/Common.proj"/>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Build" Version="17.0.0" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.0.4492" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="$(SharedErrors)" />
-    <Compile Include="$(SharedUtilities)" />
   </ItemGroup>
 
 </Project>

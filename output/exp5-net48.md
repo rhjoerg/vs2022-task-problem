@@ -22,7 +22,6 @@ mscorlib | 4.0.0.0 | 4.8.4420.0 built by: NET48REL1LAST_C | C:\Windows\Microsoft
 netstandard | 2.0.0.0 | 4.8.4084.0 | C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\netstandard\v4.0_2.0.0.0__cc7b13ffcd2ddd51\netstandard.dll
 Newtonsoft.Json | 13.0.0.0 | 13.0.1.25517 | C:\Program Files\dotnet\sdk\6.0.100\Sdks\Microsoft.NET.Sdk\tools\net472\Newtonsoft.Json.dll
 NuGet.Build.Tasks | 6.0.0.275 | 6.0.0.275 | C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.Build.Tasks.dll
-NuGet.Build.Tasks.Pack | 6.0.0.278 | 6.0.0.278 | C:\Program Files\dotnet\sdk\6.0.100\Sdks\NuGet.Build.Tasks.Pack\Desktop\NuGet.Build.Tasks.Pack.dll
 NuGet.Commands | 6.0.0.275 | 6.0.0.275 | C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.Commands.dll
 NuGet.Common | 6.0.0.275 | 6.0.0.275 | C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.Common.dll
 NuGet.Common | 6.0.0.278 | 6.0.0.278 | C:\Program Files\dotnet\sdk\6.0.100\Sdks\Microsoft.NET.Sdk\tools\net472\NuGet.Common.dll

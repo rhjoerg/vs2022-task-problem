@@ -5,14 +5,14 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <Import Project="../VS2022.TaskProblem.Shared/Tasks.proj"/>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Framework" Version="$(MicrosoftBuildFrameworkVersion)" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="$(MicrosoftBuildUtilitiesCoreVersion)" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="$(SharedTaskBase)" />
-    <Compile Include="$(SharedInfoTask)" />
     <None Include="build/VS2022.TaskProblem.Exp3.Tasks.targets" Pack="true" PackagePath="build/"/>
   </ItemGroup>
 

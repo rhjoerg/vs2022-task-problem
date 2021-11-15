@@ -1,4 +1,5 @@
 .vs/
+downloads/
 packages/
 repository/
 **/bin/
