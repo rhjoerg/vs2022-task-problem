@@ -56,3 +56,4 @@ System.Threading.Tasks.Extensions | 4.2.0.1 | 4.6.28619.01 | C:\Program Files\Mi
 System.Xml | 4.0.0.0 | 4.8.4084.0 built by: NET48REL1 | C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll
 System.Xml.Linq | 4.0.0.0 | 4.8.4084.0 built by: NET48REL1 | C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll
 VS2022.TaskProblem.Exp5.Tasks | 0.0.1.0 | 0.0.1.0 | C:\source\vs2022-task-problem\repository\VS2022.TaskProblem.Exp5.Tasks\0.0.1\lib\net48\VS2022.TaskProblem.Exp5.Tasks.dll
+VS2022.TaskProblem.Fail.Tasks | 0.0.1.0 | 0.0.1.0 | C:\source\vs2022-task-problem\repository\VS2022.TaskProblem.Fail.Tasks\0.0.1\lib\net6.0\VS2022.TaskProblem.Fail.Tasks.dll

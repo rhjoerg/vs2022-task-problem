@@ -12,7 +12,7 @@
 - [Experiment 3 - More Information Required](#experiment-3---more-information-required)
 - [Experiment 4 - Remove MSBuild](#experiment-4---remove-msbuild)
 - [Experiment 5 - net48](#experiment-5---net48)
-- [Experiment 6 - Modify MSBuild.exe.config](#experiment-6---modify-msbuildexeconfig)
+- [Stop Right Now](#stop-right-now)
 
 I upgraded to Visual Studio 2022. I upgraded some of my projects to ```<TargetFramework>net6.0</TargetFramework>```. Among those projects
 is a custom build task assembly. Building projects that "use" (```<UsingTask TaskName="...```) this assembly works fine when builing from the command line (```dotnet build ...```) but fails when building from within Visual Studio.
@@ -258,28 +258,17 @@ Whilst reading various articles on stackoverflow and other sites I stumbled over
 This [experiment][exp5taskproj] is therefore a copy of the experiment 3 but targeting "net6.0" and "net48". The [output](output/exp5-net48.md)
 still shows "netstandard 2.0" and "System 4.0".
 
-## Experiment 6 - Modify MSBuild.exe.config
+## Stop Right Now
 
-[exp6modproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp6.Modify/VS2022.TaskProblem.Exp6.Modify.csproj
-[exp6useproj]: https://github.com/rhjoerg/vs2022-task-problem/blob/main/VS2022.TaskProblem.Exp6.Using/VS2022.TaskProblem.Exp6.Using.csproj
-
-This experiment (WIP) contains two projects:
-- [VS2022.TaskProblem.Exp6.Modify][exp6modproj] &ndash; Creates a modified version of ```MSBuild.exe.config```.
-- [VS2022.TaskProblem.Exp6.Using][exp6useproj] &ndash; Uses the originally failing task with the modified configuration
-
-  VS2022.TaskProblem.Exp6.Using does not exist yet
-
-### Step 1 - Locating the Visual Studio 2022 Installation
-
-Using the ```Microsoft.VisualStudio.Setup.Configuration.Interop``` package I am able to locate the Visual Studio 2022 installation and
-verify that the MSBuild component is installed. Sadly there is not much more information to get from this package.
-
-### Step 2 - Locating MSBuild.exe
-
-[netmsbrel]: https://github.com/dotnet/msbuild/releases/tag/v17.0.0
 [appcfgdoc]: https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/
-
-I downloaded the source of [¨dotnet/msbuild][netmsbrel].
 
 After inspection of the ```MSBuild.exe.config``` and reading of the [documentation][appcfgdoc] about these files, I realized that I probably need my very
 own build of MSBuild.
+
+I stop this project right now. The next steps would be:
+
+1. Build my own x64 version of MSBuild.exe.
+2. Convince Visual Studio to us it by creating a special WSIX.
+3. Distribute this unsigned WSIX to developers.
+4. Most probably stumble over the same problem that lead to the "downgrade" of the existing MSBuild.exe in the first place.
+

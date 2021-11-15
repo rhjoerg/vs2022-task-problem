@@ -31,5 +31,7 @@ namespace VS2022.TaskProblem.Shared.VisualStudio
                 throw new DirectoryNotFoundException("VS2022 not found.");
             }
         }
+
+        public static string MSBuildAmd64Exe { get => Path.Combine(InstallDirectory, "Msbuild", "Current", "Bin", "amd64", "MSBuild.exe"); }
     }
 }
